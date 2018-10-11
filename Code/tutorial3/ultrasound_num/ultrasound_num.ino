@@ -1,10 +1,5 @@
 #include <NewPing.h>
  
-int led1 = 1;
-int led2 = 2;
-int led3 = 3;
-int led4 = 4;
-int led5 = 5;
 
 int mindist = 20;
 int maxdist = 200;
@@ -18,11 +13,7 @@ int dist2 = 5;
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
      
 void setup() {
-   pinMode(led1,OUTPUT);
-   pinMode(led2,OUTPUT);
-   pinMode(led3,OUTPUT);
-   pinMode(led4,OUTPUT);
-   pinMode(led5,OUTPUT);
+
    Serial.begin(115200);
 }
      
@@ -58,40 +49,19 @@ void loop() {
 
 void oneLight(){
   Serial.println(1);
-  digitalWrite(led1,HIGH);
 }
 void twoLight(){
   Serial.println(12);
-  digitalWrite(led1,HIGH);
-  digitalWrite(led2,HIGH);
-
 }
 void threeLight(){
   Serial.println(123);
-  digitalWrite(led1,HIGH);
-  digitalWrite(led2,HIGH);
-  digitalWrite(led3,HIGH);
 }
 void fourLight(){
   Serial.println(1234);
-  digitalWrite(led1,HIGH);
-  digitalWrite(led2,HIGH);
-  digitalWrite(led3,HIGH);
-  digitalWrite(led4,HIGH);
 }
 void fiveLight(){
   Serial.println(12345);
-  digitalWrite(led1,HIGH);
-  digitalWrite(led2,HIGH);
-  digitalWrite(led3,HIGH);
-  digitalWrite(led4,HIGH);
-  digitalWrite(led5,HIGH);
 }
 void zero(){
-  digitalWrite(led1,LOW);
-  digitalWrite(led2,LOW);
-  digitalWrite(led3,LOW);
-  digitalWrite(led4,LOW);
-  digitalWrite(led5,LOW);
   }
 
