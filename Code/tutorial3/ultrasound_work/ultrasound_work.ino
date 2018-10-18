@@ -1,34 +1,30 @@
 #include <NewPing.h>
  
-int led1 = 1;
-int led2 = 2;
-int led3 = 3;
-int led4 = 4;
-int led5 = 5;
-
-int mindist = 20;
-int maxdist = 200;
-int dist = 200;
-int dist2 = 5;
+int led1 = ;
+int led2 = ;
+int led3 = ;
+int led4 = ;
+int led5 = ;
 
 #define TRIGGER_PIN  12
 #define ECHO_PIN     11
 #define MAX_DISTANCE 200
      
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
-     
+
 void setup() {
-   pinMode(led1,OUTPUT);
-   pinMode(led2,OUTPUT);
-   pinMode(led3,OUTPUT);
-   pinMode(led4,OUTPUT);
-   pinMode(led5,OUTPUT);
-   Serial.begin(9600);
-   zero();
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  //Setup the led's as outputs here.
+  //It would look something like 
+  pinMode(led1,OUTPUT);
+  //copy this for the rest of the led's
+
+  zero();
 }
-     
+
 void loop() {
-    delay(50);
+  delay(50);
     zero();
     dist = sonar.convert_cm(sonar.ping_median());
     if (dist == 0){dist2 = 0;}
@@ -56,9 +52,13 @@ void loop() {
     }
 }
 
-
+//The code below are called functions
+//They provide steps for the program to follow and makes organization easier
+//This particular code tells the code how many LED's should be on
+//The first one turns only one led on, the second turns two leds on and so on
+//Write the rest of the functions
 void oneLight(){
-  Serial.println(1);
+
   digitalWrite(led1,HIGH);
   digitalWrite(led2,LOW);
   digitalWrite(led3,LOW);
@@ -66,7 +66,7 @@ void oneLight(){
   digitalWrite(led5,LOW);
 }
 void twoLight(){
-  Serial.println(12);
+
   digitalWrite(led1,HIGH);
   digitalWrite(led2,HIGH);
   digitalWrite(led3,LOW);
@@ -75,28 +75,13 @@ void twoLight(){
 
 }
 void threeLight(){
-  Serial.println(123);
-  digitalWrite(led1,HIGH);
-  digitalWrite(led2,HIGH);
-  digitalWrite(led3,HIGH);
-  digitalWrite(led4,LOW);
-  digitalWrite(led5,LOW);
+
 }
 void fourLight(){
-  Serial.println(1234);
-  digitalWrite(led1,HIGH);
-  digitalWrite(led2,HIGH);
-  digitalWrite(led3,HIGH);
-  digitalWrite(led4,HIGH);
-  digitalWrite(led5,LOW);
+
 }
 void fiveLight(){
-  Serial.println(12345);
-  digitalWrite(led1,HIGH);
-  digitalWrite(led2,HIGH);
-  digitalWrite(led3,HIGH);
-  digitalWrite(led4,HIGH);
-  digitalWrite(led5,HIGH);
+
 }
 void zero(){
   digitalWrite(led1,LOW);
