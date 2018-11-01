@@ -43,15 +43,26 @@ void motor_control(decode_results *results){
     Serial.println(motor_speed);
     motor(motor_speed);
   }
+  else if (results->value == 0xFF30CF){
+    Serial.print("1 Pressed, motor speed: ");
+    Serial.println(motor_speed);
+    Serial.println("Motor running for 5 seconds");
+    motor_run(motor_speed);
+  }
   else{
     Serial.print("WRONG INPUT, motor speed: ");
     Serial.println(motor_speed);
   }
 }
 void motor(int motor_speed){
-  analogWrite(motor_pin,motor_speed);
-  //Serial.print("Analog Read Value: ");
-  //Serial.println(analogRead(motor_pin));  
+  analogWrite(motor_pin,motor_speed);  
 }
-
+void motor_run(int motor_speed){
+  motor(0);
+  delay(3000);
+  motor(motor_speed);
+  delay(5000);
+  motor(0);
+  delay(1000);
+}
 
