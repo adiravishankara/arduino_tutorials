@@ -1,4 +1,4 @@
-#include "IRremote/IRremote.h"
+#include "IRremote.h"
 int enablePin = 11;
 int inA = 10;
 int inB = 9;
@@ -23,7 +23,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 if (irrecv.decode(&results)){
-    //Serial.println(results.value,HEX);
+    Serial.println(results.value,HEX);
     remote_vals(&results);
 
 if(direc == 0){
